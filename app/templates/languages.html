@@ -1,0 +1,18 @@
+{% extends "navigation.html" %}
+{% block content %}
+<ol>
+    {% for lang in languages %}
+        <li> {{ lang.lang }} </li>
+        <a href="{{ url_for('edit_language', lang_id = lang.id ) }}">
+            Edit
+        </a>
+        <a href="{{ url_for('delete_language', lang_id = lang.id ) }}" style="margin-left: 10px;">
+            Delete
+        </a>
+        <br> <br>
+    {% endfor %}
+</ol>
+<a href="{{ url_for('add_language') }}">
+    <button>Add language</button>
+</a>
+{% endblock %}

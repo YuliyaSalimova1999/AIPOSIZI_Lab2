@@ -1,0 +1,18 @@
+{% extends "navigation.html" %}
+{% block content %}
+<ol>
+    {% for genre in genres %}
+        <li> {{ genre.genre }} </li>
+        <a href="{{ url_for('edit_genre', genre_id = genre.id ) }}">
+            Edit
+        </a>
+        <a href="{{ url_for('delete_genre', genre_id = genre.id ) }}" style="margin-left: 10px;">
+            Delete
+        </a>
+        <br> <br>
+    {% endfor %}
+</ol>
+<a href="{{ url_for('add_genre') }}">
+    <button>Add genre</button>
+</a>
+{% endblock %}

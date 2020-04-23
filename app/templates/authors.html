@@ -1,0 +1,19 @@
+{% extends "navigation.html" %}
+{% block content %}
+<ol>
+    {% for author in authors %}
+        <li> {{ author.name }} {% if author.date_of_birth %}({{ author.date_of_birth }}---{{ author.date_of_death }}) {% endif %}
+            {% if author.direction %}direction: {{ author.direction }}{% endif %}</li>
+        <a href="{{ url_for('edit_author', author_id = author.id ) }}">
+            Edit
+        </a>
+        <a href="{{ url_for('delete_author', author_id = author.id ) }}" style="margin-left: 10px;">
+            Delete
+        </a>
+        <br> <br>
+    {% endfor %}
+</ol>
+<a href="{{ url_for('add_author') }}">
+    <button>Add author</button>
+</a>
+{% endblock %}
